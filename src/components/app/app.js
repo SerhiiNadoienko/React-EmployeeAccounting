@@ -13,15 +13,15 @@ class App extends  Component {
         super(props);
         this.state= {
             data:[
-                {name:'John S', salary:800,  increase:false, id:1},
-                {name:'John S', salary:3000, increase:true, id:2},
-                {name:'John S', salary:5000, increase:false, id:3}
+                {name:'John S', salary:800,  increase:false, star:false, id:1},
+                {name:'Nestor V', salary:3000, increase:false, star:false, id:2},
+                {name:'Bill K', salary:5000, increase:false, star:false, id:3}
             ]
         }
-        this.maxId = 4;
+        this.maxId=4;
     }
      
-
+    //позволяет получить id и выдает только нужные элементы 
     deleteItem =(id)=> {
         this.setState(({data})=> {
       
@@ -31,27 +31,46 @@ class App extends  Component {
         })
     }
 
-    addItem = (name, salary) => {
-        const newItem = {
-            name, 
+    addItem=(name,salary)=> {
+        const newItem= {
+            name,
             salary,
-            increase: false,
-            id: this.maxId++
+            increase:false,
+            star:false,
+            id:this.maxId++
         }
-        this.setState(({data}) => {
-            const newArr = [...data, newItem];
-            return {
-                data: newArr
+        this.setState(({data})=> {
+            const newArr=[...data, newItem];
+
+            return{
+                data:newArr
             }
-        });
+        })
+    }
+  
+    onToggleProp=(id, prop )=> {
+        this.setState(({data})=> ({
+            data: data.map(item=> {
+                if (item.id ===id) {
+                    return {...item, [prop]:!item[prop]}
+                }
+                return item;
+            })
+        }))
     }
 
-
+   
+    
     render() {
+       const employees = this.state.data.length;
+       const increased = this.state.data.filter(item=>item.increase).length;
+
         return (
+            
             //дали класс app потому что его застилизовали по центру 
             <div className="app">
-                <AppInfo/>
+                <AppInfo employees={employees}
+                increased={increased}/>
     
                 <div className='search-panel'>
                     <SearchPanel/>
@@ -60,8 +79,11 @@ class App extends  Component {
     
                 <EmployersList 
                 data={this.state.data}
-                onDelete={this.deleteItem}/>
-                <EmployersAddForm onAdd={this.addItem}/>
+                //передаем сюда проперти внутри которого метод
+                onDelete={this.deleteItem}
+                onToggleProp={this.onToggleProp}
+               />                
+                <EmployersAddForm onAdd={this.addItem}/> 
             </div>
         )
     }
