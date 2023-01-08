@@ -15,7 +15,7 @@ This training React-Application is completely written on class components. For s
 ### **Tools**
 
 ![React](https://img.shields.io/badge/-React-090909?style=for-the-badge&logo=React&logoColor=61DBFB)
-![CSS](https://img.shields.io/badge/-CSS-090909?style=for-the-badge&logo=CSS3&logoColor=2965f1)
+![SCSS](https://img.shields.io/badge/-SCSS-090909?style=for-the-badge&logo=SASS&logoColor=CD6799)
 ![Bootstrap](https://img.shields.io/badge/-Bootstrap-090909?style=for-the-badge&logo=Bootstrap&logoColor=563d7c)
 
 ---
