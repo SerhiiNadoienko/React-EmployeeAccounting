@@ -2,7 +2,7 @@
 
 ### **Description**
 
-This training application is completely written on class components. For styling, I mainly used Bootstrap.
+This training React-Application is completely written on class components. For styling, I mainly used Bootstrap.
 
 **Opportunities**
 
