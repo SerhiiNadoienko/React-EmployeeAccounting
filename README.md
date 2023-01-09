@@ -4,7 +4,7 @@
 
 This training React-Application is completely written on class components. For styling, I mainly used Bootstrap.
 
-**Opportunities**
+**Functionality**
 
 - Adding and removing employees
 - Search by name
